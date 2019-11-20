@@ -4,7 +4,6 @@ import 'package:flutter_chat/tabview/message/contactlist.dart';
 import 'package:flutter_chat/tabview/message/message_newcontact.dart';
 import 'package:flutter_chat/tabview/message/message_newgroup.dart';
 import 'package:flutter_chat/tabview/message/searchbar.dart';
-import 'package:flutter_chat/tabview/message/searchuser.dart';
 
 class createNewChat extends StatefulWidget {
   @override
@@ -14,7 +13,8 @@ class createNewChat extends StatefulWidget {
 class _createNewChatState extends State<createNewChat> {
   final topBar = AppBar(
     backgroundColor: Colors.white, // cua Appbar
-    centerTitle: true, // get the title text centered perfectly between the 2 icons
+    centerTitle:
+        true, // get the title text centered perfectly between the 2 icons
     elevation: 7.0, // do cao, mo` mo` cua app bar
     leading: CloseButton(), //hang dau
     title: SizedBox(
@@ -22,15 +22,14 @@ class _createNewChatState extends State<createNewChat> {
         child: Text(
           'Start a New Chat',
           style: TextStyle(
-              color:  const Color(0xff404040),
+              color: const Color(0xff404040),
               fontWeight: FontWeight.w700,
               fontFamily: "NunitoSans",
-              fontStyle:  FontStyle.normal,
-              fontSize: 14.0
-          ),
+              fontStyle: FontStyle.normal,
+              fontSize: 14.0),
         )),
-
   );
+
   final contactText = Text(
     "Your Contact",
     style: TextStyle(
@@ -40,109 +39,121 @@ class _createNewChatState extends State<createNewChat> {
         fontStyle: FontStyle.normal,
         fontSize: 18.0),
   );
+
+
+
+  Widget _renderText(String text) {
+    return Text(
+      text,
+      style: const TextStyle(
+          color: const Color(0xff797979),
+          fontWeight: FontWeight.w700,
+          fontFamily: "NunitoSans",
+          fontStyle: FontStyle.normal,
+          fontSize: 13.0),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: topBar,
-        body: Stack(
-          children: <Widget>[
-            Image.asset(
-              "assets/images/bg.png",
-            ),
-
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    margin: const EdgeInsets.all(16.0),
-                    //color: Colors.grey,
-                    height: 50,
-                    child: SearchBar(),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left:16.0),
-                    height: 80,
-                    decoration: BoxDecoration(),
-                    //child: ActiveList(),
-                    child: Row(
-                      children: <Widget>[
-                        FloatingActionButton(
-                          child: Icon(Icons.group_add),
-                          heroTag: "btn 1",
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => createNewContact()),
-                            );
-                          },
+      body: Stack(
+        children: <Widget>[
+          Image.asset(
+            "assets/images/bg.png",
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 10, right: 5),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.all(16.0),
+                  height: 50,
+                  child: SearchBar(),
+                ),
+                Expanded(
+                  flex: 0,
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 16, bottom: 16, top: 16),
+                        child: Container(
+                          width: 40.0,
+                          height: 40.0,
+                          child: FloatingActionButton(
+                            heroTag: 1,
+                            child: Icon(Icons.group_add),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => createNewContact()),
+                              );
+                            },
+                          ),
                         ),
-
-                        Text("Add New Contact",
-                          style: const TextStyle(
-                              color:  const Color(0xff797979),
-                              fontWeight: FontWeight.w700,
-                              fontFamily: "NunitoSans",
-                              fontStyle:  FontStyle.normal,
-                              fontSize: 13.0
-                          ),)
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      _renderText("Add New Contact"),
+                    ],
                   ),
-                  Container(
-                    height: 80,
-                    margin: const EdgeInsets.only(left:16.0),
-                    decoration: BoxDecoration(
-                    ),
-                    //child: ActiveList(),
-                    child: Row(
-                      children: <Widget>[
-                        FloatingActionButton(
-                          child: Icon(Icons.group_add),
-                          heroTag: "btn 2",
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => createNewGroup()),
-                            );
-                          },
+                ),
+                Expanded(
+                  flex: 0,
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 16, bottom: 16, top: 16),
+                        child: Container(
+                          width: 40.0,
+                          height: 40.0,
+                          child: FloatingActionButton(
+                            heroTag: 2,
+                            child: Icon(Icons.group_add),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => createNewGroup()),
+                              );
+                            },
+                          ),
                         ),
-
-                        Text("Create Group",
-                          style: const TextStyle(
-                              color:  const Color(0xff797979),
-                              fontWeight: FontWeight.w700,
-                              fontFamily: "NunitoSans",
-                              fontStyle:  FontStyle.normal,
-                              fontSize: 13.0
-                          ),)
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      _renderText("Create Group"),
+                    ],
                   ),
-
-                  Container(
-                    height: 410,
-                      margin: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        contactText,
-                        Container(height: 380,child: contactList()),
-                      ],
-                    )
-
-                  )
-
-                ],
-              ),
+                ),
+                Expanded(
+                    child: Container(
+                  margin: const EdgeInsets.only(top: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      contactText,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: Container(height: 400, child: contactList()),
+                      ),
+                    ],
+                  ),
+                ))
+              ],
             ),
-
-          ],
-        ),
-
+          ),
+        ],
+      ),
     );
   }
 }

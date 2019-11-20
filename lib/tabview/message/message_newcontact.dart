@@ -6,7 +6,7 @@ class createNewContact extends StatefulWidget {
 
 class _createNewContactState extends State<createNewContact> {
   final topBar = AppBar(
-    backgroundColor: Colors.white, // cua Appbar
+   // backgroundColor: Colors.white, // cua Appbar
     centerTitle: true, // get the title text centered perfectly between the 2 icons
     elevation: 7.0, // do cao, mo` mo` cua app bar
     leading: CloseButton(), //hang dau
@@ -54,7 +54,7 @@ class _createNewContactState extends State<createNewContact> {
                 decoration: InputDecoration(
                   labelText: "Mobile Number",
                 ),
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.phone,
                 style: TextStyle(
                   fontFamily: "NunitoSans",
                   fontStyle: FontStyle.normal,

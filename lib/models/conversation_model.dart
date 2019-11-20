@@ -12,14 +12,14 @@ class ConversationModel {
 }
 //me
 final ChatModel currentUser = ChatModel(
-  name: dummyData[5].name,
-  country: dummyData[5].country,
-  avatarUrl: dummyData[5].avatarUrl,
+  name: dummyData[1].name,
+  country: dummyData[1].country,
+  avatarUrl: dummyData[1].avatarUrl,
 );
 //sender
 final ChatModel sender = ChatModel(
-  name: dummyData[4].name,
-  avatarUrl: dummyData[4].avatarUrl,
+  name: dummyData[2].name,
+  avatarUrl: dummyData[2].avatarUrl,
 );
 
 

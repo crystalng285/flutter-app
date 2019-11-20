@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/modules/friend/pages/friendlist.dart';
 import 'package:flutter_chat/tabview/message/contactlist.dart';
-import 'package:flutter_chat/tabview/message/message_newcontact.dart';
 import 'package:flutter_chat/tabview/message/searchbar.dart';
 
 class createNewGroup extends StatefulWidget {
@@ -62,7 +60,6 @@ class _createNewGroupState extends State<createNewGroup> {
             child: Column(
               children: <Widget>[
                 Container(
-                    color: Colors.grey,
                     child: SearchBar()),
                 Container(
                     height: 500,

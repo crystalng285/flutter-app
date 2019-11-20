@@ -40,39 +40,32 @@ class _contactListState extends State<contactList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        padding: EdgeInsets.only(top: 10),
         itemCount: _chaters.length,
-        itemBuilder: (context, i) => Container(
-          //color: Colors.amberAccent,
-          child: Column(
-            children: <Widget>[
-              Divider(
-                height: 7.0,
+        itemBuilder: (context, i) => Column(
+          children: <Widget>[
+            ListTile(
+              leading: CircleAvatar(
+                foregroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Colors.grey,
+                backgroundImage:
+                NetworkImage(_chaters[i].avatarUrl),
               ),
-              ListTile(
-                leading: CircleAvatar(
-                  foregroundColor: Theme.of(context).primaryColor,
-                  backgroundColor: Colors.grey,
-                  backgroundImage:
-                  NetworkImage(_chaters[i].avatarUrl),
-                ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      _chaters[i].name,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "Helvetica",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 12.0),
-                    ),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    _chaters[i].name,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Helvetica",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12.0),
+                  ),
 
-                  ],
-                ),
-              )
-            ],
-          ),
+                ],
+              ),
+            )
+          ],
         )
     );
   }

@@ -32,23 +32,18 @@ class _MessagePageState extends State<MessagePage> {
       ),
     ],
   );
-  final text_addnewlist = Text("+New chat or create group",
-    style: const TextStyle(
-        color:  const Color(0xff797979),
-        fontWeight: FontWeight.w700,
-        fontFamily: "NunitoSans",
-        fontStyle:  FontStyle.normal,
-        fontSize: 13.0
-    ),);
-  final text_request = Text("Message Request",
-    style: const TextStyle(
-        color:  const Color(0xff797979),
-        fontWeight: FontWeight.w700,
-        fontFamily: "NunitoSans",
-        fontStyle:  FontStyle.normal,
-        fontSize: 13.0
-    ),);
 
+  Widget _renderText(String text) {
+    return Text(
+      text,
+      style: const TextStyle(
+          color: const Color(0xff797979),
+          fontWeight: FontWeight.w700,
+          fontFamily: "NunitoSans",
+          fontStyle: FontStyle.normal,
+          fontSize: 13.0),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -56,62 +51,71 @@ class _MessagePageState extends State<MessagePage> {
         Image.asset(
           "assets/images/bg.png",
         ),
-        Column(
-          children: <Widget>[
-            Expanded(
-              flex: 0,
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Container(
-                      margin: const EdgeInsets.all(16.0),
-                      child: FloatingActionButton(
-                        child: Icon(Icons.group_add),
-                        onPressed: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => createNewChat()),
-                          );
-                        },
+        Container(
+          margin: const EdgeInsets.only(left: 10.0, right: 16),
+          child: Column(
+            children: <Widget>[
+              //Add chat group button
+              Expanded(
+                flex: 0,
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, bottom: 16, top: 16),
+                      child: Container(
+                        width: 40.0,
+                        height: 40.0,
+                        child: FloatingActionButton(
+                          child: Icon(Icons.group_add),
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => createNewChat()),
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                  text_addnewlist
-                ],
+                    SizedBox(width: 16,),
+                    _renderText("+New chat or create group")
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                  //height: 500,
-                  child: chatConversation()),
-            ),
-            Expanded(
-              flex: 0,
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Container(
-                      margin: const EdgeInsets.all(16.0),
-                      child: FloatingActionButton(
-                        heroTag: "btn3",
-                        child: Icon(Icons.chat_bubble_outline),
-                        onPressed: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => messageRequest()),
-                          );
-                        },
+              //Chat
+              Expanded(
+                flex: 1,
+                child: chatConversation(),
+              ),
+
+              //Message Request button
+              Expanded(
+                flex: 0,
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, bottom: 16, top: 16),
+                      child: Container(
+                        width: 40.0,
+                        height: 40.0,
+                        child: FloatingActionButton(
+                          heroTag: "btn3",
+                          child: Icon(Icons.chat_bubble_outline),
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => messageRequest()),
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                  text_request,
-                ],
+                    SizedBox(width: 16,),
+                    _renderText("Message Request")
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
 
       ],

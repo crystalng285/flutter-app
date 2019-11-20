@@ -75,8 +75,7 @@ class _ActiveAccountState extends State<ActiveAccount> {
       child: new Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: new ListView.builder(
-          scrollDirection:
-          Axis.horizontal, // cac Listview dc xep theo chieu ngang
+          scrollDirection: Axis.horizontal, // cac Listview dc xep theo chieu ngang
           itemCount: _chaters.length,
           itemBuilder: (context, index) => Stack(
             alignment: Alignment.bottomRight,

@@ -3,7 +3,7 @@ import 'package:flutter_chat/chat/chatConversation.dart';
 
 
 class RecentChatSection extends StatelessWidget {
-  final activeText = Row(
+  final recentText = Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
       Text(
@@ -32,14 +32,13 @@ class RecentChatSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
-      margin: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.only(left: 16.0, right: 16),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          activeText,
+          recentText,
           chatConversation(),
         ],
       ),

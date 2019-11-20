@@ -16,21 +16,17 @@ class _HomePageState extends State<HomePage> {
       children: <Widget>[
 
         Container(
-          height: 220,
-          decoration: BoxDecoration(
-          ),
+height: 200,
           child: ChatList(),
         ),
         Container(
-          height: 170,
-          decoration: BoxDecoration(
-          ),
+          height: 140,
+
           child: ActiveList(),
         ),
+        SizedBox(height: 5,),
         Container(
-          height: 280,
-          decoration: BoxDecoration(
-          ),
+          height: 360,
           child: RecentChatList(),
         ),
       ],

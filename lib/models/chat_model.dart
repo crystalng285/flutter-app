@@ -1,6 +1,4 @@
 
-import 'package:intl/intl.dart';
-
 class ChatModel {
   //Variable
   final String id;
@@ -8,9 +6,10 @@ class ChatModel {
   final String lastname;
   final String country;
   final String message;
-  String time ;
+  final int time;
   final String avatarUrl;
   final bool unread;
+
   //Constructor
   ChatModel({
     this.id,
@@ -21,6 +20,7 @@ class ChatModel {
     this.time,
     this.avatarUrl,
     this.unread,
+    // this.now
   });
 
   factory ChatModel.fromJson(Map<String, dynamic> parsedJson) {
@@ -29,7 +29,7 @@ class ChatModel {
       name: parsedJson['name'].toString(),
       lastname: parsedJson['lastname'].toString(),
       message: parsedJson['message'].toString(),
-      time: parsedJson['time'].toString(),
+      time: parsedJson['time'],
       avatarUrl: parsedJson['avatarUrl'].toString(),
       unread: parsedJson['unread'],
     );

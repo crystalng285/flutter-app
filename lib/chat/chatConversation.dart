@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/models/chat_model.dart';
 import 'package:flutter_chat/tabview/message/message_screen.dart';
+import 'package:flutter_chat/utils/convertFromTimeStamp.dart';
 import 'package:http/http.dart' as HTTP;
 
 class chatConversation extends StatefulWidget {
@@ -22,11 +23,9 @@ class _chatConversationState extends State<chatConversation> {
   }
 
   void getJsonData() async {
-    var response = await HTTP.get(Uri.encodeFull(url), headers: {
-      "Accept": "application/json"
-    }); // using method get without body
+    var response = await HTTP.get(Uri.encodeFull(url)); // using method get without body
     print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
+//    print('Response body: ${response.body}');
 
     List data = json.decode(response.body); // [ {} ]
 
@@ -35,7 +34,6 @@ class _chatConversationState extends State<chatConversation> {
       ChatModel chatmodel = ChatModel.fromJson(item);
       _chaters.add(chatmodel);
     });
-
 
     this.setState(() {});
   }
@@ -50,15 +48,16 @@ class _chatConversationState extends State<chatConversation> {
         );
       },
       child: Container(
-        height: 300,
+        //color: Colors.yellow,
+        height: 350,
         child: ListView.builder(
-            padding: EdgeInsets.only(top: 10),
+           // padding: EdgeInsets.only(top: 5),
             itemCount: _chaters.length,
             itemBuilder: (context, i) => Container(
                   child: Column(
                     children: <Widget>[
                       Divider(
-                        height: 7.0,
+                        height: 1.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -69,21 +68,23 @@ class _chatConversationState extends State<chatConversation> {
                                 leading: CircleAvatar(
                                   foregroundColor:
                                       Theme.of(context).primaryColor,
-                                  backgroundColor: Colors.grey,
                                   backgroundImage:
                                       NetworkImage(_chaters[i].avatarUrl),
                                 ),
                                 title: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text(
-                                      _chaters[i].name,
-                                      style: TextStyle(
-                                          color: const Color(0xff26a6c6),
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: "Helvetica",
-                                          fontStyle: FontStyle.normal,
-                                          fontSize: 12.0),
+                                    Container(
+                                      margin: EdgeInsets.only(bottom: 8),
+                                      child: Text(
+                                        _chaters[i].name,
+                                        style: TextStyle(
+                                            color: const Color(0xff26a6c6),
+                                            fontWeight: FontWeight.w400,
+                                            fontFamily: "Helvetica",
+                                            fontStyle: FontStyle.normal,
+                                            fontSize: 12.0),
+                                      ),
                                     ),
                                     _chaters[i].unread
                                         ? Text(
@@ -116,18 +117,11 @@ class _chatConversationState extends State<chatConversation> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
-                                Text(
-                                  _chaters[i].time,
-                                  style: const TextStyle(
-                                      color: const Color(0xff97a1a4),
-                                      fontWeight: FontWeight.w700,
-                                      fontFamily: "NunitoSans",
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: 10.0),
-                                ),
+                                converFromTimeStamp(_chaters, i),
                                 _chaters[i].unread
                                     ? Container(
-                                        width: 40.0,
+                                  margin: EdgeInsets.only(top: 5),
+                                  width: 40.0,
                                         height: 20.0,
                                         decoration: BoxDecoration(
                                           color: Theme.of(context).primaryColor,
@@ -147,7 +141,7 @@ class _chatConversationState extends State<chatConversation> {
                                     : Text(''),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],

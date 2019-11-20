@@ -29,6 +29,7 @@ dependencies:
   image_picker: ^0.6.1+11
   intl: ^0.15.8
 #  cloud_firestore: ^0.12.10
+  date_format: ^1.0.8
 
 dev_dependencies:
   flutter_test:

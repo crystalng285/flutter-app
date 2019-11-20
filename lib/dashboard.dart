@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat/models/menuitem.dart';
 import 'package:flutter_chat/modules/home/pages/home_page.dart';
 import 'package:flutter_chat/modules/friend/pages/friendpage.dart';
 import 'package:flutter_chat/modules/message/pages/message_page.dart';
@@ -140,15 +141,4 @@ class _DashBoardState extends State<DashBoard> {
   }
 }
 
-class MenuItem {
 
-  MenuItem({
-    this.appbarTitle,
-    this.widget,
-    this.item,
-  });
-
-  final String appbarTitle;
-  final BottomNavigationBarItem item;
-  final Widget widget;
-}
