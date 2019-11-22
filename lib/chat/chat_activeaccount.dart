@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/chat/active.dart';
 import 'package:flutter_chat/models/chat_model.dart';
-import 'package:flutter_chat/tabview/message/message_screen.dart';
+import 'package:flutter_chat/modules/message/pages/message_screen.dart';
 
 import 'package:http/http.dart' as HTTP;
 import 'dart:convert';

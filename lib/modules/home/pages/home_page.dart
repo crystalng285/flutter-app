@@ -14,17 +14,17 @@ class _HomePageState extends State<HomePage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
-
         Container(
-height: 200,
+          height: 200,
           child: ChatList(),
         ),
         Container(
           height: 140,
-
           child: ActiveList(),
         ),
-        SizedBox(height: 5,),
+        SizedBox(
+          height: 5,
+        ),
         Container(
           height: 360,
           child: RecentChatList(),

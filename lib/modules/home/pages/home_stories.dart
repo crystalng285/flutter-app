@@ -3,8 +3,6 @@ import 'package:flutter_chat/models/chat_model.dart';
 import 'package:http/http.dart' as HTTP;
 import 'dart:convert';
 
-
-
 class HomeStories extends StatefulWidget {
   @override
   _HomeStoriesState createState() => _HomeStoriesState();
@@ -62,7 +60,7 @@ class _HomeStoriesState extends State<HomeStories> {
     ],
   );
 
-  Widget _storiesPicture(){
+  Widget _storiesPicture() {
     return Expanded(
       child: new Padding(
         padding: const EdgeInsets.only(top: 8.0),
@@ -89,11 +87,13 @@ class _HomeStoriesState extends State<HomeStories> {
                   child: CircleAvatar(
                     backgroundColor: Colors.white30,
                     radius: 25.0, // ban kinh circle avatar
-                    child: Icon(
-                      Icons.add_a_photo,
-                      size: 20.0,
-                      color: Colors.white,
-                    ),
+                    child: IconButton(
+                        icon: Icon(Icons.add_a_photo),
+                        iconSize: 20.0,
+                        color: Colors.white,
+                        onPressed: () {
+                          print("press");
+                        }),
                   ))
                   : Container()
             ],
@@ -112,12 +112,15 @@ class _HomeStoriesState extends State<HomeStories> {
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          GestureDetector(child: storiesText, onTap: (){
+          GestureDetector(
+            child: storiesText,
+            onTap: () {
 //            Navigator.push(
 //              context,
 //              MaterialPageRoute(builder: (context) => CameraPage()),
 //            );
-          },),
+            },
+          ),
           _storiesPicture(),
         ],
       ),

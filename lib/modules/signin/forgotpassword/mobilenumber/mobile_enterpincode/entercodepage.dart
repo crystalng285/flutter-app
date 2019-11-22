@@ -1,9 +1,4 @@
-import 'package:flutter_chat/chatpage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/numverpage.dart';
-import 'package:pin_entry_text_field/pin_entry_text_field.dart';
-import 'package:http/http.dart';
-
 import 'package:pinput/pin_put/pin_put.dart';
 
 //Truyen
@@ -27,7 +22,6 @@ class _EnterCodePageState extends State<EnterCodePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     flag = true;

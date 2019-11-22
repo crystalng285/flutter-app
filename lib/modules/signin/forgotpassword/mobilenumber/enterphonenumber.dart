@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/codepage.dart';
-import 'package:flutter_chat/forgotpwpage.dart';
-//import 'dart:convert';
+import 'package:flutter_chat/modules/signin/forgotpassword/mobilenumber/mobile_enterpincode/entercodepage.dart';
 
 import 'package:international_phone_input/international_phone_input.dart';
 
-
-class NumVerification extends StatefulWidget {
+class EnterPhoneNumber extends StatefulWidget {
   @override
-  _NumVerificationState createState() => _NumVerificationState();
+  _EnterPhoneNumberState createState() => _EnterPhoneNumberState();
 }
 
-class _NumVerificationState extends State<NumVerification> {
+class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
   String phoneNumber;
   String phoneIsoCode;
   bool _flag;
@@ -28,7 +25,7 @@ class _NumVerificationState extends State<NumVerification> {
         print("number = ${number}");
         _enterCode();
       }
-    else
+      else
       {
         //_ackAlert(context);
       }
@@ -48,8 +45,8 @@ class _NumVerificationState extends State<NumVerification> {
             children: <Widget>[
               Padding(
                   padding: EdgeInsets.only(
-                left: 24,
-              )),
+                    left: 24,
+                  )),
               Text(
                 "My Mobile Number is",
                 style: TextStyle(
@@ -86,13 +83,13 @@ class _NumVerificationState extends State<NumVerification> {
             //padding: EdgeInsets.all(42),
             child: Stack(
               children: <Widget>[
-                  InternationalPhoneInput(
-                    hintText: "Mobile Number",
+                InternationalPhoneInput(
+                  hintText: "Mobile Number",
 
-                      onPhoneNumberChange: onPhoneNumberChange,
-                      initialPhoneNumber: phoneNumber,
-                      initialSelection: phoneIsoCode,
-                  ),
+                  onPhoneNumberChange: onPhoneNumberChange,
+                  initialPhoneNumber: phoneNumber,
+                  initialSelection: phoneIsoCode,
+                ),
                 //Check flag
 
 
@@ -141,6 +138,7 @@ class _NumVerificationState extends State<NumVerification> {
     });
   }
 }
+
 class EnterCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -151,3 +149,4 @@ class EnterCode extends StatelessWidget {
     );
   }
 }
+

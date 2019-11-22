@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/chat/chatConversation.dart';
 import 'package:flutter_chat/tabview/message/message_newlist.dart';
-import 'package:flutter_chat/tabview/message/message_request.dart';
+import 'package:flutter_chat/modules/message/pages/button_requestmessage/message_request.dart';
 
 class MessagePage extends StatefulWidget {
   @override

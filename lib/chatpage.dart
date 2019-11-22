@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/dashboard.dart';
-import 'package:flutter_chat/models/category.dart';
 //API
 
 import 'dart:convert';

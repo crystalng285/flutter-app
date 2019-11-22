@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/chat/chat_recentchatsection.dart';
+import 'package:flutter_chat/chat/chatConversation.dart';
 class messageRequest extends StatefulWidget {
   @override
   _messageRequestState createState() => _messageRequestState();
@@ -34,7 +34,7 @@ class _messageRequestState extends State<messageRequest> {
           padding: const EdgeInsets.all(25),
           child: Column(
             children: <Widget>[
-              RecentChatSection()
+              chatConversation()
             ],
           ),
         ),

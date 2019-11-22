@@ -40,4 +40,12 @@ List<ConversationModel> conversationData = [
     sender: currentUser,
     text: 'All the food',
   ),
+  ConversationModel(
+    sender: sender,
+    text: 'See you later',
+  ),
+  ConversationModel(
+    sender: currentUser,
+    text: 'Bye',
+  ),
 ];

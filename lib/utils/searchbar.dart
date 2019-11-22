@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/tabview/message/message_newcontact.dart';
 
 class SearchBar extends StatefulWidget {
   @override

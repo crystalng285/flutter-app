@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat/utils/renderAppbar.dart';
 class createNewContact extends StatefulWidget {
   @override
   _createNewContactState createState() => _createNewContactState();
@@ -25,16 +26,21 @@ class _createNewContactState extends State<createNewContact> {
     actions: <Widget>[
       Padding(
         padding: const EdgeInsets.only(right: 12.0),
-        child: Icon(Icons.save),
+        child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.save),
+            color: Colors.red
+        ),
       ),
     ],
   );
-
+  bool check = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomPadding: false,
-        appBar: topBar,
+      appBar: renderAppBar("Add New Contact", check
+      ),
         body: Padding(
           padding: const EdgeInsets.all(25),
           child: Column(

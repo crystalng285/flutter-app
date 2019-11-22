@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/secondpage.dart';
-
-import 'dart:async';
+import 'package:flutter_chat/modules/signin/signinpage.dart';
 
 void main() => runApp(MyApp());
+
+
+//created a class CommonThings has static Size = use it throughout the app.
+class CommonThings {
+  static Size size;
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,26 +15,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "My App title",
       home: FirstPage(),
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
     );
   }
 }
 
-class FirstPage extends StatefulWidget {
-  @override
-  _FirstPageState createState() => _FirstPageState();
-}
-
-//------------------FIRST PAGE ----------------------------------
-class _FirstPageState extends State<FirstPage> {
+class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    CommonThings.size = MediaQuery
+        .of(context)
+        .size;
+
     return Scaffold(
-      // backgroundColor: Colors.red,
       body: GestureDetector(
-        onTap: action,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SecondPage()),
+          );
+        },
         child: Stack(
           fit: StackFit.loose,
           children: <Widget>[
@@ -65,13 +68,6 @@ class _FirstPageState extends State<FirstPage> {
           ],
         ),
       ),
-    );
-  }
-
-  void action() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SecondPage()),
     );
   }
 }

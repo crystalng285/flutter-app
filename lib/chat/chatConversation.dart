@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/models/chat_model.dart';
-import 'package:flutter_chat/tabview/message/message_screen.dart';
+import 'package:flutter_chat/modules/message/pages/message_screen.dart';
 import 'package:flutter_chat/utils/convertFromTimeStamp.dart';
 import 'package:http/http.dart' as HTTP;
 
@@ -51,14 +51,16 @@ class _chatConversationState extends State<chatConversation> {
         //color: Colors.yellow,
         height: 350,
         child: ListView.builder(
-           // padding: EdgeInsets.only(top: 5),
+          //padding: EdgeInsets.only(top: 5),
             itemCount: _chaters.length,
             itemBuilder: (context, i) => Container(
                   child: Column(
                     children: <Widget>[
-                      Divider(
+                      i != 0
+                          ? Divider(
                         height: 1.0,
-                      ),
+                      )
+                          : Container(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
